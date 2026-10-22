@@ -1,0 +1,152 @@
+[
+  {
+    "id": "p01",
+    "name": "Global median luminance",
+    "spatial_coordinate": "Global",
+    "signal_domain": "Luminance / contrast",
+    "definition": "Median luminance within the target-cell mask.",
+    "calculation": "Median Y over pixels inside the target-cell mask, without exterior-reference subtraction.",
+    "dimension": 1,
+    "control_seed_offset": 1
+  },
+  {
+    "id": "p02",
+    "name": "Fourier spectral centroid",
+    "spatial_coordinate": "Global",
+    "signal_domain": "Frequency / texture",
+    "definition": "Typical spatial frequency of whole-cell power.",
+    "calculation": "Power-weighted normalized radial frequency after cosine apodization inside the mask.",
+    "dimension": 1,
+    "control_seed_offset": 13
+  },
+  {
+    "id": "p03",
+    "name": "Global chroma magnitude",
+    "spatial_coordinate": "Global",
+    "signal_domain": "Chromatic",
+    "definition": "Whole-cell opponent-color magnitude.",
+    "calculation": "Median sqrt(a^2+b^2) inside the mask.",
+    "dimension": 1,
+    "control_seed_offset": 16
+  },
+  {
+    "id": "p04",
+    "name": "Radial luminance allocation",
+    "spatial_coordinate": "Radial / distributed",
+    "signal_domain": "Luminance / contrast",
+    "definition": "Center-to-periphery luminance allocation.",
+    "calculation": "Median Y in each of 12 normalized-radius rings, centered by the cell median.",
+    "dimension": 12,
+    "control_seed_offset": 2
+  },
+  {
+    "id": "p05",
+    "name": "Radial frequency allocation",
+    "spatial_coordinate": "Radial / distributed",
+    "signal_domain": "Frequency / texture",
+    "definition": "Radial allocation of three frequency bands.",
+    "calculation": "Within each of 12 rings, mean-square energy of low, mid, and high components.",
+    "dimension": 36,
+    "control_seed_offset": 21
+  },
+  {
+    "id": "p06",
+    "name": "Radial chromatic profile",
+    "spatial_coordinate": "Radial / distributed",
+    "signal_domain": "Chromatic",
+    "definition": "Radial allocation of the two opponent-color components.",
+    "calculation": "For each of six normalized-radius rings, median opponent-color a and median b.",
+    "dimension": 12,
+    "control_seed_offset": 17
+  },
+  {
+    "id": "p07",
+    "name": "Boundary-depth luminance allocation",
+    "spatial_coordinate": "Boundary-depth",
+    "signal_domain": "Luminance / contrast",
+    "definition": "Luminance allocation by distance inward from the boundary.",
+    "calculation": "Median Y in each of 12 inward boundary-depth layers, centered by the cell median.",
+    "dimension": 12,
+    "control_seed_offset": 3
+  },
+  {
+    "id": "p08",
+    "name": "Boundary-depth frequency allocation",
+    "spatial_coordinate": "Boundary-depth",
+    "signal_domain": "Frequency / texture",
+    "definition": "Depth allocation of normalized frequency-band energy.",
+    "calculation": "Layer mean squared band amplitude divided by whole-cell band energy, for 12 depth layers and three bands.",
+    "dimension": 36,
+    "control_seed_offset": 28
+  },
+  {
+    "id": "p09",
+    "name": "Boundary-depth chroma allocation",
+    "spatial_coordinate": "Boundary-depth",
+    "signal_domain": "Chromatic",
+    "definition": "Depth allocation of the two opponent-color components.",
+    "calculation": "For each of 12 guarded boundary-depth layers, median opponent-color a and median b.",
+    "dimension": 24,
+    "control_seed_offset": 18
+  },
+  {
+    "id": "p10",
+    "name": "Boundary-interior optical contrast",
+    "spatial_coordinate": "Local / interface",
+    "signal_domain": "Luminance / contrast",
+    "definition": "Luminance contrast between the inner rim and interior.",
+    "calculation": "Mean Y within 5 px of the inner mask boundary minus mean Y in the remaining interior.",
+    "dimension": 1,
+    "control_seed_offset": 22
+  },
+  {
+    "id": "p11",
+    "name": "Gradient magnitude profile",
+    "spatial_coordinate": "Local / interface",
+    "signal_domain": "Frequency / texture",
+    "definition": "Spatial allocation of luminance edge strength.",
+    "calculation": "Twelve-ring median profile of gradient magnitude after mask-normalized Gaussian smoothing.",
+    "dimension": 12,
+    "control_seed_offset": 7
+  },
+  {
+    "id": "p12",
+    "name": "Interface chromatic-gradient energy",
+    "spatial_coordinate": "Local / interface",
+    "signal_domain": "Chromatic",
+    "definition": "Strength of opponent-color transitions at the interface.",
+    "calculation": "Mean squared gradient magnitude of a and of b in the inner interface band after mask-normalized Gaussian smoothing, sigma=max(0.02 D_eq,1.25 px).",
+    "dimension": 2,
+    "control_seed_offset": 33
+  },
+  {
+    "id": "p13",
+    "name": "Angular luminance heterogeneity",
+    "spatial_coordinate": "Angular / anisotropic",
+    "signal_domain": "Luminance / contrast",
+    "definition": "Angular variation beyond a radial luminance baseline.",
+    "calculation": "Twelve angular-sector medians of the absolute residual from a 12-ring radial median baseline.",
+    "dimension": 12,
+    "control_seed_offset": 4
+  },
+  {
+    "id": "p14",
+    "name": "Fourier orientation anisotropy",
+    "spatial_coordinate": "Angular / anisotropic",
+    "signal_domain": "Frequency / texture",
+    "definition": "Directional imbalance of Fourier power.",
+    "calculation": "Normalized Fourier power across 12 angular bins after cosine apodization.",
+    "dimension": 12,
+    "control_seed_offset": 14
+  },
+  {
+    "id": "p15",
+    "name": "Radial-angular chromatic anisotropy",
+    "spatial_coordinate": "Angular / anisotropic",
+    "signal_domain": "Chromatic",
+    "definition": "Angular variation of color within radial rings.",
+    "calculation": "For each of six rings, variance across available medians from 12 angular sectors.",
+    "dimension": 6,
+    "control_seed_offset": 23
+  }
+]

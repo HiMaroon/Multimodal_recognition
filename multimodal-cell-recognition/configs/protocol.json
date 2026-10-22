@@ -1,0 +1,18 @@
+{
+  "classes": ["MCF-7", "MCF-10A", "HCT-116"],
+  "modalities": ["BFR", "BFT", "DFR"],
+  "backbones": ["densenet121", "resnet50", "mobilenet_v2", "efficientnet-b1", "convnext_tiny", "swin_tiny"],
+  "selected_backbones": {"BFR": "mobilenet_v2", "BFT": "densenet121", "DFR": "densenet121"},
+  "cnn_seed": 260811,
+  "proxy_cnn_seed": 260830,
+  "proxy_classifier_seed": 260916,
+  "intervention_doses": [0.25, 0.5, 0.75, 1.0],
+  "matched_controls": 8,
+  "rms_relative_tolerance": 0.02,
+  "cnn_bootstrap_replicates": 10000,
+  "proxy_bootstrap_replicates": 5000,
+  "statistics_seed": 260916,
+  "representation_seed": 260811,
+  "intervention_bootstrap_replicates": 3000,
+  "intervention_bh_family_size": 45
+}
